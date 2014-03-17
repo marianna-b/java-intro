@@ -1,8 +1,11 @@
 public class Main {
 
     public static void main(String[] args) {
-        int x = Integer.parseInt(args[0]);
-        int result = new Add(
+        double x = Double.parseDouble(args[0]);
+        double y = Double.parseDouble(args[1]);
+        double z = Double.parseDouble(args[2]);
+
+        double result = new Add(
                 new Subtract(
                         new Multiply(
                                 new Variable("x"),
@@ -14,7 +17,7 @@ public class Main {
                         )
                 ),
                 new Const(1)
-        ).evaluate(x);
+        ).evaluate(x, y, z);
 
         System.out.println(result);
     }

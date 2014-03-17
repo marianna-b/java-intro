@@ -1,13 +1,13 @@
-public class Const implements Expression {
+public class Const implements Expression3 {
 
-    private final int value;
+    private final double value;
 
-    public Const(int value) {
+    public Const(double value) {
         this.value = value;
     }
 
     @Override
-    public int evaluate(int value) {
+    public double evaluate(double x, double y, double z) {
         return this.value;
     }
 }
