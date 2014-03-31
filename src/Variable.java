@@ -10,17 +10,17 @@ public class Variable implements Expression3 {
     public double evaluate(double x, double y, double z) {
         double result = 0;
 
-        switch (name.charAt(0)) {
+        switch (name) {
 
-            case 'x' :
+            case "x" :
                 result =  x;
                 break;
 
-            case 'y' :
+            case "y" :
                 result =  y;
                 break;
 
-            case 'z':
+            case "z":
                 result =  z;
                 break;
 
