@@ -14,35 +14,30 @@ public class ExpressionParser {
         expr = newExpression;
         currVariable = "";
         currLexem = 0;
-        nextLexem();
-        lengthCurrLexem = 0;
         currVal = 0;
+        nextLexem();
     }
 
     public static Expression3 parse(String expr) {
+        expr = expr.replaceAll("\\s+", "");
         return (new ExpressionParser(expr)).sumLexem();
     }
 
     private Expression3 sumLexem() {
 
         Expression3 result;
-
+        System.out.println();
         if (isMinus()) {
-            result =  new Negative(mulLexem());
+            nextLexem();
+            result = new Negative(mulLexem());
         } else {
             result = mulLexem();
         }
 
-        if (isEnd()) {
-
-            return new Const(0);
-        }
-
-        while (isPlus() || isMinus()) {
+        while (!isEnd() && (isPlus() || isMinus())) {
             if (isPlus()) {
                 nextLexem();
                 result = new Add(result, mulLexem());
-                return result;
             } else {
                 nextLexem();
                 result = new Subtract(result, mulLexem());
@@ -54,18 +49,15 @@ public class ExpressionParser {
     private Expression3 mulLexem() {
 
         Expression3 currMul = lexem();
-        if (isEnd()) {
-            return new Const(0);
-        }
 
-        while (isMul() || isDiv()) {
+        while (!isEnd() && (isMul() || isDiv())) {
 
             if (isMul()) {
                 nextLexem();
-                return new Multiply(currMul, lexem());
+                currMul = new Multiply(currMul, lexem());
             } else {
                 nextLexem();
-                return new Divide(currMul, lexem());
+                currMul = new Divide(currMul, lexem());
             }
         }
         return currMul;
@@ -73,28 +65,25 @@ public class ExpressionParser {
 
     private Expression3 lexem() {
 
-        Expression3 result = new Const(1);
+        Expression3 result;
+        System.err.println("");
 
-        if (!isEnd()) {
-            if (isConst()) {
-                result = new Const(currVal);
-            }
-
-            if (isVariable()) {
-                result = new Variable(currVariable);
-            }
-
-            if (isMinus()) {
-                result = new Negative(lexem());
-            }
-
-            if (isOpen()) {
-                result = sumLexem();
-            }
-
-            if (isClose()) {
-                nextLexem();
-            }
+        if (isConst()) {
+            result = new Const(currVal);
+            nextLexem();
+        } else if (isVariable()) {
+            result = new Variable(currVariable);
+            nextLexem();
+        } else if (isMinus()) {
+            nextLexem();
+            result = new Negative(lexem());
+        } else if (isOpen()) {
+            nextLexem();
+            result = sumLexem();
+            assert isClose();
+            nextLexem();
+        } else {
+            throw new RuntimeException(""); // TODO:
         }
         return result;
     }
@@ -108,38 +97,41 @@ public class ExpressionParser {
 
         lengthCurrLexem = 0;
 
-        while (isWhitespace()) {
-            lengthCurrLexem = 1;
-            nextLexem();
-            return;
-        }
-
         if (isConst()) {
 
-            while (isConst()) {
+            while (!isEnd(lengthCurrLexem) && isConst(lengthCurrLexem)) {
                 lengthCurrLexem++;
             }
 
             currVal = Integer.parseInt(expr.substring(currLexem, currLexem + lengthCurrLexem));
 
-        } else {
-            if (isVariable()) {
+        } else if (isVariable()) {
 
-                while (isVariable()) {
-                    currLexem++;
-                }
-                currVariable = expr.substring(currLexem, currLexem + lengthCurrLexem);
-
+            while (!isEnd(lengthCurrLexem) && isVariable(lengthCurrLexem)) {
+                lengthCurrLexem++;
             }
+            currVariable = expr.substring(currLexem, currLexem + lengthCurrLexem);
+
+        } else {
+            lengthCurrLexem = 1;
         }
     }
 
+
+    private boolean isConst(int x) {
+        return Character.isDigit(expr.charAt(currLexem + x));
+    }
+
+    private boolean isVariable(int x) {
+        return Character.isLetter(expr.charAt(currLexem + x));
+    }
+
     private boolean isConst() {
-        return Character.isDigit(expr.charAt(currLexem));
+        return isConst(0);
     }
 
     private boolean isVariable() {
-        return Character.isLetter(expr.charAt(currLexem));
+        return isVariable(0);
     }
 
     private boolean isPlus() {
@@ -166,11 +158,11 @@ public class ExpressionParser {
         return expr.charAt(currLexem) == ')';
     }
 
-    private boolean isWhitespace() {
-        return expr.charAt(currLexem) == ')';
+    private boolean isEnd(int x) {
+        return expr.length() <= currLexem + x;
     }
 
     private boolean isEnd() {
-        return expr.length() <= currLexem;
+        return isEnd(0);
     }
 }

@@ -10,4 +10,9 @@ public class Const implements Expression3 {
     public double evaluate(double x, double y, double z) {
         return this.value;
     }
+
+    @Override
+    public String toString() {
+        return ((Double)value).toString();
+    }
 }

@@ -27,4 +27,9 @@ public class Variable implements Expression3 {
         }
         return result;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
