@@ -1,18 +1,14 @@
 public class Const implements Expression3 {
 
-    private final double value;
+    private final int value;
 
-    public Const(double value) {
+    public Const(int value) {
         this.value = value;
     }
 
     @Override
-    public double evaluate(double x, double y, double z) {
+    public int evaluate(int x, int y, int z) {
         return this.value;
     }
 
-    @Override
-    public String toString() {
-        return ((Double)value).toString();
-    }
 }

@@ -1,21 +1,15 @@
+import java.util.List;
+
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
 public class ExpressionParser {
+    private List <Lexem> lexems;
+    private int idx;
 
-    private int currLexem;
-    private int lengthCurrLexem;
-    private int currVal;
-    private String expr;
-    private String currVariable;
-
-
-    public ExpressionParser(String newExpression) {
-        expr = newExpression;
-        currVariable = "";
-        currLexem = 0;
-        currVal = 0;
-        nextLexem();
+    private ExpressionParser(String expression) {
+        idx = 0;
+        lexems = Lexer.getLexems(expression);
     }
 
     public static Expression3 parse(String expr) {
@@ -24,39 +18,43 @@ public class ExpressionParser {
     }
 
     private Expression3 sumLexem() {
-
         Expression3 result;
-        System.out.println();
-        if (isMinus()) {
-            nextLexem();
+
+        if (lexems.get(idx).getType() == Lexem.LexemType.MINUS) {
+            idx++;
             result = new Negative(mulLexem());
         } else {
             result = mulLexem();
         }
 
-        while (!isEnd() && (isPlus() || isMinus())) {
-            if (isPlus()) {
-                nextLexem();
+        while (idx < lexems.size() && (IdxType() == Lexem.LexemType.PLUS || IdxType() == Lexem.LexemType.MINUS)) {
+            if (IdxType() == Lexem.LexemType.PLUS) {
+                idx++;
                 result = new Add(result, mulLexem());
             } else {
-                nextLexem();
+                idx++;
                 result = new Subtract(result, mulLexem());
             }
         }
         return result;
     }
 
+
+    private Lexem.LexemType IdxType() {
+        return lexems.get(idx).getType();
+    }
+
     private Expression3 mulLexem() {
 
         Expression3 currMul = lexem();
 
-        while (!isEnd() && (isMul() || isDiv())) {
+        while (idx < lexems.size() && (IdxType() == Lexem.LexemType.MUL || IdxType() == Lexem.LexemType.DIV)) {
 
-            if (isMul()) {
-                nextLexem();
+            if (IdxType() == Lexem.LexemType.MUL) {
+                idx++;
                 currMul = new Multiply(currMul, lexem());
             } else {
-                nextLexem();
+                idx++;
                 currMul = new Divide(currMul, lexem());
             }
         }
@@ -66,103 +64,23 @@ public class ExpressionParser {
     private Expression3 lexem() {
 
         Expression3 result;
-        System.err.println("");
 
-        if (isConst()) {
-            result = new Const(currVal);
-            nextLexem();
-        } else if (isVariable()) {
-            result = new Variable(currVariable);
-            nextLexem();
-        } else if (isMinus()) {
-            nextLexem();
+        if (IdxType() == Lexem.LexemType.CONST) {
+            result = new Const(((NumLex)lexems.get(idx)).getValue());
+            idx++;
+        } else if (IdxType() == Lexem.LexemType.VAR) {
+            result = new Variable(((VarLex)lexems.get(idx)).getName());
+            idx++;
+        } else if (IdxType() == Lexem.LexemType.MINUS) {
+            idx++;
             result = new Negative(lexem());
-        } else if (isOpen()) {
-            nextLexem();
+        } else if (IdxType() == Lexem.LexemType.OPEN_BRACKET) {
+            idx++;
             result = sumLexem();
-            assert isClose();
-            nextLexem();
+            idx++;
         } else {
-            throw new RuntimeException(""); // TODO:
+            throw new RuntimeException("");
         }
         return result;
-    }
-
-    private void nextLexem() {
-        currLexem += lengthCurrLexem;
-
-        if (isEnd()) {
-            return;
-        }
-
-        lengthCurrLexem = 0;
-
-        if (isConst()) {
-
-            while (!isEnd(lengthCurrLexem) && isConst(lengthCurrLexem)) {
-                lengthCurrLexem++;
-            }
-
-            currVal = Integer.parseInt(expr.substring(currLexem, currLexem + lengthCurrLexem));
-
-        } else if (isVariable()) {
-
-            while (!isEnd(lengthCurrLexem) && isVariable(lengthCurrLexem)) {
-                lengthCurrLexem++;
-            }
-            currVariable = expr.substring(currLexem, currLexem + lengthCurrLexem);
-
-        } else {
-            lengthCurrLexem = 1;
-        }
-    }
-
-
-    private boolean isConst(int x) {
-        return Character.isDigit(expr.charAt(currLexem + x));
-    }
-
-    private boolean isVariable(int x) {
-        return Character.isLetter(expr.charAt(currLexem + x));
-    }
-
-    private boolean isConst() {
-        return isConst(0);
-    }
-
-    private boolean isVariable() {
-        return isVariable(0);
-    }
-
-    private boolean isPlus() {
-        return expr.charAt(currLexem) == '+';
-    }
-
-    private boolean isMinus() {
-        return expr.charAt(currLexem) == '-';
-    }
-
-    private boolean isMul() {
-        return expr.charAt(currLexem) == '*';
-    }
-
-    private boolean isDiv() {
-        return expr.charAt(currLexem) == '/';
-    }
-
-    private boolean isOpen() {
-        return expr.charAt(currLexem) == '(';
-    }
-
-    private boolean isClose() {
-        return expr.charAt(currLexem) == ')';
-    }
-
-    private boolean isEnd(int x) {
-        return expr.length() <= currLexem + x;
-    }
-
-    private boolean isEnd() {
-        return isEnd(0);
     }
 }

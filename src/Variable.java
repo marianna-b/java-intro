@@ -7,8 +7,8 @@ public class Variable implements Expression3 {
     }
 
     @Override
-    public double evaluate(double x, double y, double z) {
-        double result = 0;
+    public int evaluate(int x, int y, int z) {
+        int result = 0;
 
         switch (name) {
 
