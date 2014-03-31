@@ -33,6 +33,11 @@ public class ExpressionParser {
             result = mulLexem();
         }
 
+        if (isEnd()) {
+
+            return new Const(0);
+        }
+
         while (isPlus() || isMinus()) {
             if (isPlus()) {
                 nextLexem();
@@ -47,7 +52,11 @@ public class ExpressionParser {
     }
 
     private Expression3 mulLexem() {
+
         Expression3 currMul = lexem();
+        if (isEnd()) {
+            return new Const(0);
+        }
 
         while (isMul() || isDiv()) {
 
@@ -65,30 +74,38 @@ public class ExpressionParser {
     private Expression3 lexem() {
 
         Expression3 result = new Const(1);
-        if (isConst()) {
-            result = new Const(currVal);
-        }
 
-        if (isVariable()) {
-            result = new Variable(currVariable);
-        }
+        if (!isEnd()) {
+            if (isConst()) {
+                result = new Const(currVal);
+            }
 
-        if (isMinus()) {
-            result = new Negative(lexem());
-        }
+            if (isVariable()) {
+                result = new Variable(currVariable);
+            }
 
-        if (isOpen()) {
-            result = sumLexem();
-        }
+            if (isMinus()) {
+                result = new Negative(lexem());
+            }
 
-        if (isClose()) {
-            nextLexem();
+            if (isOpen()) {
+                result = sumLexem();
+            }
+
+            if (isClose()) {
+                nextLexem();
+            }
         }
         return result;
     }
 
     private void nextLexem() {
         currLexem += lengthCurrLexem;
+
+        if (isEnd()) {
+            return;
+        }
+
         lengthCurrLexem = 0;
 
         while (isWhitespace()) {
@@ -151,5 +168,9 @@ public class ExpressionParser {
 
     private boolean isWhitespace() {
         return expr.charAt(currLexem) == ')';
+    }
+
+    private boolean isEnd() {
+        return expr.length() <= currLexem;
     }
 }
