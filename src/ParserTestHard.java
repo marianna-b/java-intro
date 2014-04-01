@@ -7,7 +7,7 @@ import java.util.Random;
  * @author Niyaz Nigmatullin
  */
 
-public class ParserTest {
+public class ParserTestHard {
 
     static final Random RNG = new Random(58L);
 
@@ -227,7 +227,11 @@ public class ParserTest {
         static Test genFactor(int depth, int coefficient, int[] vars) {
             if (makeNewBranch(depth, coefficient)) {
                 Test t = genFactor(depth + 1, coefficient, vars);
-                return new Test("- " + t.expr, t.answer == null ? null : -t.answer);
+                if (RNG.nextBoolean()) {
+                    return new Test("- " + t.expr, t.answer == null ? null : -t.answer);
+                } else {
+                    return new Test("~ " + t.expr, t.answer == null ? null : ~t.answer);
+                }
             } else {
                 return genValue(depth, coefficient, vars);
             }
@@ -236,7 +240,11 @@ public class ParserTest {
         static Test genValue(int depth, int coefficient, int[] vars) {
             if (makeNewBranch(depth, coefficient)) {
                 Test t = genExpression(depth + 1, coefficient, vars);
-                return new Test("( " + t.expr + " )", t.answer == null ? null : t.answer);
+                if (RNG.nextBoolean()) {
+                    return new Test("( " + t.expr + " )", t.answer == null ? null : t.answer);
+                } else {
+                    return new Test("abs( " + t.expr + " )", t.answer == null ? null : Math.abs(t.answer));
+                }
             } else if (RNG.nextBoolean()) {
                 int value = RNG.nextInt();
                 return new Test("" + value, value);
@@ -285,7 +293,7 @@ public class ParserTest {
         boolean assertsEnabled = false;
         assert assertsEnabled = true;
         if (!assertsEnabled) {
-            throw new AssertionError("You should enable assertions by running 'java -ea ParserTest'");
+            throw new AssertionError("You should enable assertions by running 'java -ea ParserTestHard'");
         }
     }
 }

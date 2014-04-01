@@ -13,20 +13,20 @@ public class Lexer {
     private int currLexem = 0;
     private int newLexem = 0;
     private String expression;
-    private List <Lexem> result;
+    private List<Lexem> result;
 
-    private Lexer(String s){
+    private Lexer(String s) {
         currLexem = 0;
         newLexem = 0;
         expression = s;
-        result = new ArrayList <>();
+        result = new ArrayList<>();
 
         while (newLexem < expression.length()) {
             result.add(nextLexem());
         }
     }
 
-    public static List <Lexem> getLexems(String s) {
+    public static List<Lexem> getLexems(String s) {
         return new Lexer(s).result;
     }
 
@@ -45,6 +45,13 @@ public class Lexer {
             case '+':
                 return new Lexem(PLUS);
 
+            case '~':
+                return new Lexem(NOT);
+
+            case 'a':
+                newLexem += 2;
+                return new Lexem(ABS);
+
             case '-':
                 return new Lexem(MINUS);
 
@@ -62,12 +69,11 @@ public class Lexer {
         }
         newLexem--;
         if (Character.isDigit(currChar())) {
-
             while (newLexem < expression.length() && Character.isDigit(newChar())) {
                 newLexem++;
             }
 
-            int val = (int)Long.parseLong(expression.substring(currLexem, newLexem));
+            int val = (int) Long.parseLong(expression.substring(currLexem, newLexem));
 
             return new NumLex(val);
         }

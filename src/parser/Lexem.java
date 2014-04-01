@@ -17,6 +17,8 @@ public class Lexem {
         MINUS,
         MUL,
         DIV,
+        NOT,
+        ABS,
         OPEN_BRACKET,
         CLOSE_BRACKET
     }
