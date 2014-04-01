@@ -1,60 +1,64 @@
+package parser;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static parser.Lexem.LexemType.*;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
 public class Lexer {
 
-    private static int currLexem = 0;
-    private static int newLexem = 0;
-    private static String expression;
+    private int currLexem = 0;
+    private int newLexem = 0;
+    private String expression;
+    private List <Lexem> result;
 
-    public static void init(){
+    private Lexer(String s){
         currLexem = 0;
         newLexem = 0;
-    }
-
-    public static List <Lexem> getLexems(String s) {
-        init();
         expression = s;
-        List <Lexem> result = new ArrayList <>();
+        result = new ArrayList <>();
 
         while (newLexem < expression.length()) {
             result.add(nextLexem());
         }
-        return result;
     }
 
-    private static char currChar() {
+    public static List <Lexem> getLexems(String s) {
+        return new Lexer(s).result;
+    }
+
+    private char currChar() {
         return expression.charAt(currLexem);
     }
 
-    private static char newChar() {
+    private char newChar() {
         return expression.charAt(newLexem);
     }
 
-    private static Lexem nextLexem() {
+    private Lexem nextLexem() {
         currLexem = newLexem;
         newLexem++;
         switch (currChar()) {
             case '+':
-                return new Lexem(Lexem.LexemType.PLUS);
+                return new Lexem(PLUS);
 
             case '-':
-                return new Lexem(Lexem.LexemType.MINUS);
+                return new Lexem(MINUS);
 
             case '*':
-                return new Lexem(Lexem.LexemType.MUL);
+                return new Lexem(MUL);
 
             case '/':
-                return new Lexem(Lexem.LexemType.DIV);
+                return new Lexem(DIV);
 
             case '(':
-                return new Lexem(Lexem.LexemType.OPEN_BRACKET);
+                return new Lexem(OPEN_BRACKET);
 
             case ')':
-                return new Lexem(Lexem.LexemType.CLOSE_BRACKET);
+                return new Lexem(CLOSE_BRACKET);
         }
         newLexem--;
         if (Character.isDigit(currChar())) {

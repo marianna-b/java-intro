@@ -1,3 +1,5 @@
+package parser;
+
 public abstract class AbstractBinaryExpression implements Expression3 {
 
     protected final Expression3 first, second;

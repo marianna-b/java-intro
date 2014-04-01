@@ -1,3 +1,5 @@
+package parser;
+
 /**
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  * @version $$Id$$

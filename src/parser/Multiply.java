@@ -1,3 +1,5 @@
+package parser;
+
 public class Multiply extends AbstractBinaryExpression {
 
     public Multiply(Expression3 first, Expression3 second) {

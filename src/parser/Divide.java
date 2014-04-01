@@ -1,3 +1,5 @@
+package parser;
+
 public class Divide extends AbstractBinaryExpression {
 
     public Divide(Expression3 first, Expression3 second) {
