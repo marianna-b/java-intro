@@ -20,4 +20,9 @@ public class NumLex extends Lexem {
     public LexemType getType() {
         return super.getType();
     }
+
+    @Override
+    public String toString() {
+        return "Number: " + Integer.toString(value);
+    }
 }

@@ -10,11 +10,15 @@ public class Ternary extends AbstractTripleExpression {
     }
 
     @Override
-    public int evaluate(int x, int y, int z) {
+    public int evaluate(int x, int y, int z) throws AbstractException {
         int flag = first.evaluate(x, y, z);
         if (flag == 0)
             return second.evaluate(x, y, z);
         else
             return third.evaluate(x, y, z);
+    }
+
+    public String toString() {
+        return first.toString() + ":" + second.toString() + "?" + third.toString();
     }
 }

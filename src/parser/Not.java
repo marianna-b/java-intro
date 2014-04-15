@@ -10,7 +10,13 @@ public class Not extends AbstractUnaryExpression {
     }
 
     @Override
-    public int evaluate(int x, int y, int z) {
+    public int evaluate(int x, int y, int z) throws AbstractException {
         return ~ first.evaluate(x, y, z);
     }
+
+    public String toString() {
+
+        return "~" + first.toString();
+    }
+
 }

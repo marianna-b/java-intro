@@ -9,7 +9,7 @@ public class Variable implements Expression3 {
     }
 
     @Override
-    public int evaluate(int x, int y, int z) {
+    public int evaluate(int x, int y, int z) throws AbstractException{
         int result = 0;
 
         switch (name) {
@@ -25,6 +25,9 @@ public class Variable implements Expression3 {
             case "z":
                 result =  z;
                 break;
+
+            default:
+                throw new UnknownVariableException("unknown variable");
 
         }
         return result;

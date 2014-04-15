@@ -15,18 +15,19 @@ public class Lexer {
     private String expression;
     private List<Lexem> result;
 
-    private Lexer(String s) {
+    private Lexer(String s) throws ParseExpressionException {
         currLexem = 0;
         newLexem = 0;
         expression = s;
         result = new ArrayList<>();
 
         while (newLexem < expression.length()) {
+            skipWhitespaces();
             result.add(nextLexem());
         }
     }
 
-    public static List<Lexem> getLexems(String s) {
+    public static List<Lexem> getLexems (String s) throws ParseExpressionException {
         return new Lexer(s).result;
     }
 
@@ -38,12 +39,21 @@ public class Lexer {
         return expression.charAt(newLexem);
     }
 
-    private Lexem nextLexem() {
+    private Lexem nextLexem() throws ParseExpressionException {
+        skipWhitespaces();
         currLexem = newLexem;
         newLexem++;
+
         switch (currChar()) {
             case '+':
                 return new Lexem(PLUS);
+
+            case '^':
+                return new Lexem(EXP);
+
+            case 'l':
+                newLexem++;
+                return new Lexem(LOG);
 
             case '~':
                 return new Lexem(NOT);
@@ -73,16 +83,26 @@ public class Lexer {
                 newLexem++;
             }
 
-            int val = (int) Long.parseLong(expression.substring(currLexem, newLexem));
+            long valLong = Long.parseLong(expression.substring(currLexem, newLexem));
+            if (valLong > Integer.MAX_VALUE)
+                    throw new ParseExpressionException("invalid size of number");
 
-            return new NumLex(val);
+            return new NumLex((int)valLong);
         }
+        if (Character.isAlphabetic(currChar())) {
+            while (newLexem < expression.length() && Character.isLetter(newChar())) {
+                newLexem++;
+            }
 
-        while (newLexem < expression.length() && Character.isLetter(newChar())) {
+            String name = expression.substring(currLexem, newLexem);
+            return new VarLex(name);
+        }
+        throw new ParseExpressionException("invalid symbol");
+    }
+
+    private void skipWhitespaces() {
+        while (newLexem < expression.length() && Character.isWhitespace(expression.charAt(newLexem)))
             newLexem++;
-        }
 
-        String name = expression.substring(currLexem, newLexem);
-        return new VarLex(name);
     }
 }

@@ -11,4 +11,5 @@ public abstract class AbstractTripleExpression implements Expression3 {
         this.second = second;
         this.third = third;
     }
+
 }

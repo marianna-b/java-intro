@@ -21,4 +21,9 @@ public class VarLex extends Lexem {
     public LexemType getType() {
         return super.getType();
     }
+
+    @Override
+    public String toString() {
+        return "Variable: " + name;
+    }
 }
