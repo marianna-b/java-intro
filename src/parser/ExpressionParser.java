@@ -1,5 +1,9 @@
 package parser;
 
+import parser.exceptions.InvalidLexemException;
+import parser.exceptions.ParseExpressionException;
+import parser.expr3.*;
+
 import java.util.List;
 
 import static parser.Lexem.LexemType.CLOSE_BRACKET;
@@ -8,18 +12,18 @@ import static parser.Lexem.LexemType.CLOSE_BRACKET;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class ExpressionParser {
+public class ExpressionParser <T extends Number <T>> {
     private List<Lexem> lexems;
     private int idx;
 
-    private ExpressionParser(String expression) throws ParseExpressionException {
+    private ExpressionParser(String expression, Number a) throws ParseExpressionException {
         idx = 0;
-        lexems = Lexer.getLexems(expression);
+        lexems = Lexer.getLexems(expression, a);
     }
 
-    public static Expression3 parse(String expr) throws ParseExpressionException {
+    public static Expression3 parse(String expr, Number a) throws ParseExpressionException {
 
-        ExpressionParser parser = new ExpressionParser(expr);
+        ExpressionParser parser = new ExpressionParser(expr, a);
         Expression3 result = (parser).evalLexem(1);
         if (parser.idx < parser.lexems.size())
             throw new ParseExpressionException("invalid end of expression");
@@ -75,7 +79,7 @@ public class ExpressionParser {
                 break;
 
             case CONST:
-                result = new Const(((NumLex) lexems.get(idx)).getValue());
+                result = new Const(((NumLex<T>) lexems.get(idx)).getValue());
                 idx++;
                 break;
 
@@ -94,11 +98,11 @@ public class ExpressionParser {
                 result = new Abs(lexem());
                 break;
 
-            case NOT:
+            /*case NOT:
                 idx++;
                 result = new Not(lexem());
                 break;
-
+*/
             case OPEN_BRACKET:
                 idx++;
                 result = evalLexem(1);

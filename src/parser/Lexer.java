@@ -1,5 +1,7 @@
 package parser;
 
+import parser.exceptions.ParseExpressionException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,14 +10,14 @@ import static parser.Lexem.LexemType.*;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Lexer {
+public class Lexer <T extends Number <T> > {
 
     private int currLexem = 0;
     private int newLexem = 0;
     private String expression;
     private List<Lexem> result;
 
-    private Lexer(String s) throws ParseExpressionException {
+    private Lexer (String s, Number a) throws ParseExpressionException {
         currLexem = 0;
         newLexem = 0;
         expression = s;
@@ -23,12 +25,12 @@ public class Lexer {
 
         while (newLexem < expression.length()) {
             skipWhitespaces();
-            result.add(nextLexem());
+            result.add(nextLexem(a));
         }
     }
 
-    public static List<Lexem> getLexems (String s) throws ParseExpressionException {
-        return new Lexer(s).result;
+    public static List<Lexem> getLexems (String s, Number a) throws ParseExpressionException {
+        return new Lexer(s, a).result;
     }
 
     private char currChar() {
@@ -39,7 +41,7 @@ public class Lexer {
         return expression.charAt(newLexem);
     }
 
-    private Lexem nextLexem() throws ParseExpressionException {
+    private Lexem nextLexem(Number a) throws ParseExpressionException {
         skipWhitespaces();
         currLexem = newLexem;
         newLexem++;
@@ -83,11 +85,12 @@ public class Lexer {
                 newLexem++;
             }
 
-            long valLong = Long.parseLong(expression.substring(currLexem, newLexem));
-            if (valLong > Integer.MAX_VALUE)
+            String valStr = expression.substring(currLexem, newLexem);
+
+            if (a.checkNumber(valStr))
                     throw new ParseExpressionException("invalid size of number");
 
-            return new NumLex((int)valLong);
+            return new NumLex((Number)a.parseNumber(valStr));
         }
         if (Character.isAlphabetic(currChar())) {
             while (newLexem < expression.length() && Character.isLetter(newChar())) {
@@ -105,4 +108,5 @@ public class Lexer {
             newLexem++;
 
     }
+
 }

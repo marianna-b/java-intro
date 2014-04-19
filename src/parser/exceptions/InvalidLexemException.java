@@ -1,4 +1,6 @@
-package parser;
+package parser.exceptions;
+
+import parser.Lexem;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)

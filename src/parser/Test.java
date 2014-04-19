@@ -1,27 +1,55 @@
 package parser;
 
+import parser.exceptions.AbstractException;
+
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
 public class Test {
     public static void main(String[] args) {
-        String s = "x^9 + y * lb(x ^ 2 + 3)";
-        System.out.print("x\t");
-        for (int i = 0; i < 100; i++) {
-            System.out.print(i + "\t");
-        }
-        System.out.println();
-        for (int i = 0; i < 100; i++) {
-            System.out.print(i + "\t");
-            for (int j = 0; j < 100; j++) {
+
+        switch (args[0]) {
+            case ("-i"):
+                NumberInteger xi = new NumberInteger(args[2]);
+                NumberInteger yi = new NumberInteger(args[3]);
+                NumberInteger zi = new NumberInteger(args[4]);
 
                 try {
-                    System.out.print(ExpressionParser.parse(s).evaluate(j, i, 0) + "\t");
+                    NumberInteger resI = (NumberInteger)ExpressionParser.parse(args[1], new NumberInteger("0")).evaluate(xi, yi, zi);
+                    System.out.println(resI.val);
                 } catch (AbstractException e) {
-                    System.out.print(e.getMessage() + "\t");
+                    System.out.println(e.getMessage());
                 }
-            }
-            System.out.println();
+
+                break;
+
+            case ("-d"):
+                NumberDouble xd = new NumberDouble(args[2]);
+                NumberDouble yd = new NumberDouble(args[3]);
+                NumberDouble zd = new NumberDouble(args[4]);
+
+                try {
+                    NumberDouble resD = (NumberDouble)ExpressionParser.parse(args[1], new NumberDouble("0")).evaluate(xd, yd, zd);
+                    System.out.println(resD.val);
+                } catch (AbstractException e) {
+                    System.out.println(e.getMessage());
+                }
+
+                break;
+            case ("-bi"):
+                NumberBigInteger xbi = new NumberBigInteger(args[2]);
+                NumberBigInteger ybi = new NumberBigInteger(args[3]);
+                NumberBigInteger zbi = new NumberBigInteger(args[4]);
+
+                try {
+                    NumberBigInteger resBI = (NumberBigInteger)ExpressionParser.parse(args[1], new NumberBigInteger("0")).evaluate(xbi, ybi, xbi);
+                    System.out.println(resBI.val);
+                } catch (AbstractException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+            default:
+                System.out.println("unexpected type");
         }
     }
 }

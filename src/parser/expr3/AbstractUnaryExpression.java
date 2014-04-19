@@ -1,4 +1,4 @@
-package parser;
+package parser.expr3;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)

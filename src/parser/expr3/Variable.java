@@ -1,6 +1,10 @@
-package parser;
+package parser.expr3;
 
-public class Variable implements Expression3 {
+import parser.Number;
+import parser.exceptions.AbstractException;
+import parser.exceptions.UnknownVariableException;
+
+public class Variable <T extends parser.Number<T>> implements Expression3 {
 
     private final String name;
 
@@ -9,8 +13,8 @@ public class Variable implements Expression3 {
     }
 
     @Override
-    public int evaluate(int x, int y, int z) throws AbstractException{
-        int result = 0;
+    public Number evaluate(Number x, Number y, Number z) throws AbstractException {
+        Number result;
 
         switch (name) {
 

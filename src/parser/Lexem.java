@@ -1,5 +1,8 @@
 package parser;
 
+import parser.exceptions.ParseExpressionException;
+import parser.expr3.*;
+
 import java.util.ArrayList;
 
 import static parser.Lexem.LexemType.*;
@@ -7,7 +10,7 @@ import static parser.Lexem.LexemType.*;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Lexem {
+public class Lexem <T> {
     protected final LexemType type;
     protected static final ArrayList <LexemType>[] operation = new ArrayList[6];
 
@@ -69,7 +72,7 @@ public class Lexem {
         else if (type == DIV)
             return new Divide(a, b);
         else if (type == EXP)
-            return new Exp(a, b);
+            return new Exp (a, b);
 
         throw new ParseExpressionException("not a binary operator");
     }

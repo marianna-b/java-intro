@@ -1,4 +1,4 @@
-package parser;
+package parser.expr3;
 
 public abstract class AbstractBinaryExpression implements Expression3 {
 
