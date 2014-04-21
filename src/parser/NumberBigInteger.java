@@ -18,6 +18,10 @@ public class NumberBigInteger implements Number<NumberBigInteger> {
         val = new BigInteger(s);
     }
 
+    public void inc(){
+        val = val.add(BigInteger.ONE);
+    }
+
     @Override
     public NumberBigInteger sum(NumberBigInteger b) throws AbstractException {
         return new NumberBigInteger(val.add(b.val));

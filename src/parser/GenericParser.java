@@ -1,6 +1,7 @@
 package parser;
 
 import parser.exceptions.AbstractException;
+import parser.expr3.Expression3;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
@@ -10,17 +11,34 @@ public class GenericParser {
         String expression = args[1];
         switch (args[0]) {
             case ("-i"):
-                NumberInteger xi = new NumberInteger(args[2]);
-                NumberInteger yi = new NumberInteger(args[3]);
-                NumberInteger zi = new NumberInteger(args[4]);
 
                 try {
                     ExpressionParser <NumberInteger> pI;
                     pI = new ExpressionParser<>(expression, new NumberIntegerParser());
-                    NumberInteger resI = pI.parse().evaluate(xi, yi, zi);
+                    Expression3 <NumberInteger> resI = pI.parse();
 
-                    System.out.println(resI.val);
-                } catch (AbstractException e) {
+                    NumberInteger xi = new NumberInteger(-100);
+                    NumberInteger yi = new NumberInteger(-100);
+                    NumberInteger zi = new NumberInteger(0);
+
+                    while (!xi.isMax()) {
+                        yi.setMin();
+                        while (!yi.isMax()) {
+
+                            try {
+                                System.out.print(resI.evaluate(xi, yi, zi) + " ");
+                            } catch (AbstractException e) {
+                                System.out.print("error ");
+                            }
+
+                            yi.inc();
+                        }
+                        xi.inc();
+                        System.out.println();
+                    }
+
+
+                    } catch (AbstractException e) {
                     System.out.println(e.getMessage());
                 }
 

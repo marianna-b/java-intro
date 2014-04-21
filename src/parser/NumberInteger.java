@@ -13,6 +13,10 @@ import parser.exceptions.*;
         val = x;
     }
 
+    public void inc(){
+        val++;
+    }
+
     public NumberInteger(String s) {
         val = Integer.parseInt(s);
     }

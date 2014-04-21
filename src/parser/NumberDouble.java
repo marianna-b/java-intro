@@ -18,6 +18,10 @@ public class NumberDouble implements Number<NumberDouble> {
         val = Double.parseDouble(s);
     }
 
+    public void inc(){
+        val++;
+    }
+
     @Override
     public NumberDouble sum(NumberDouble b) throws AbstractException {
         return new NumberDouble(val + b.val);

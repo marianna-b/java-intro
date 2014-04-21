@@ -7,6 +7,10 @@ import parser.exceptions.AbstractException;
  */
 public interface Number <T> {
 
+    void inc();
+    void setMin();
+    boolean isMax();
+
     T sum (T b) throws AbstractException;
     T sub (T b) throws AbstractException;
     T mul (T b) throws AbstractException;

@@ -1,38 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d87a2cfe-7d55-4cbd-862e-7fe2c0da1298" name="Default" comment="Fixing generics&#10;&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/GenericParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/GenericParserTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/NumberBigIntegerParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/NumberDoubleParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/NumberIntegerParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/NumberParser.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parser/Not.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parser/Ternary.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parser/expr3/AbstractTripleExpression.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Abs.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Abs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/AbstractBinaryExpression.java" afterPath="$PROJECT_DIR$/src/parser/expr3/AbstractBinaryExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/AbstractUnaryExpression.java" afterPath="$PROJECT_DIR$/src/parser/expr3/AbstractUnaryExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Add.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Add.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Const.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Divide.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Divide.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Exp.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Exp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/ExpressionParser.java" afterPath="$PROJECT_DIR$/src/parser/ExpressionParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/Lexem.java" afterPath="$PROJECT_DIR$/src/parser/Lexem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/Lexer.java" afterPath="$PROJECT_DIR$/src/parser/Lexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Log.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Log.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Multiply.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Multiply.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Negative.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Negative.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumLex.java" afterPath="$PROJECT_DIR$/src/parser/NumLex.java" />
+    <list default="true" id="d87a2cfe-7d55-4cbd-862e-7fe2c0da1298" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/GenericParser.java" afterPath="$PROJECT_DIR$/src/parser/GenericParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/Number.java" afterPath="$PROJECT_DIR$/src/parser/Number.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumberBigInteger.java" afterPath="$PROJECT_DIR$/src/parser/NumberBigInteger.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumberDouble.java" afterPath="$PROJECT_DIR$/src/parser/NumberDouble.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumberInteger.java" afterPath="$PROJECT_DIR$/src/parser/NumberInteger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Subtract.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Subtract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/Test.java" afterPath="$PROJECT_DIR$/src/parser/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/VarLex.java" afterPath="$PROJECT_DIR$/src/parser/VarLex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Variable.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Variable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="java-intro.iws" />
@@ -122,7 +96,7 @@
       <file leaf-file-name="Number.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser/Number.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="4" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+            <state line="13" column="3" selection-start="166" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
               <folding />
             </state>
           </provider>
@@ -162,7 +136,18 @@
       <file leaf-file-name="GenericParser.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/parser/GenericParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="52" selection-start="472" selection-end="472" vertical-scroll-proportion="0.7949527" vertical-offset="0" max-vertical-offset="1260">
+            <state line="39" column="0" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.6890595" vertical-offset="343" max-vertical-offset="1584">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NumberBigInteger.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/NumberBigInteger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="14" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1548">
               <folding />
             </state>
           </provider>
@@ -180,7 +165,7 @@
       <file leaf-file-name="NumberInteger.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser/NumberInteger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="5" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="2988">
+            <state line="15" column="4" selection-start="258" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="3060">
               <folding />
             </state>
           </provider>
@@ -189,25 +174,7 @@
       <file leaf-file-name="NumberDouble.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser/NumberDouble.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="13" selection-start="733" selection-end="733" vertical-scroll-proportion="0.0" vertical-offset="215" max-vertical-offset="1512">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberDoubleParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/NumberDoubleParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="23" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lexem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/Lexem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="9" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0" vertical-offset="1017" max-vertical-offset="1566">
+            <state line="21" column="8" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1584">
               <folding />
             </state>
           </provider>
@@ -226,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/parser/Negative.java" />
         <option value="$PROJECT_DIR$/src/parser/Not.java" />
         <option value="$PROJECT_DIR$/src/parser/Subtract.java" />
         <option value="$PROJECT_DIR$/src/parser/Ternary.java" />
@@ -264,18 +230,19 @@
         <option value="$PROJECT_DIR$/src/parser/VarLex.java" />
         <option value="$PROJECT_DIR$/src/parser/NumLex.java" />
         <option value="$PROJECT_DIR$/src/parser/Lexem.java" />
-        <option value="$PROJECT_DIR$/src/parser/Number.java" />
-        <option value="$PROJECT_DIR$/src/parser/NumberBigInteger.java" />
         <option value="$PROJECT_DIR$/src/parser/NumberBigIntegerParser.java" />
         <option value="$PROJECT_DIR$/src/parser/Lexer.java" />
         <option value="$PROJECT_DIR$/src/parser/NumberParser.java" />
         <option value="$PROJECT_DIR$/src/parser/NumberIntegerParser.java" />
-        <option value="$PROJECT_DIR$/src/parser/NumberInteger.java" />
         <option value="$PROJECT_DIR$/src/parser/NumberDoubleParser.java" />
-        <option value="$PROJECT_DIR$/src/parser/NumberDouble.java" />
         <option value="$PROJECT_DIR$/src/parser/Test.java" />
         <option value="$PROJECT_DIR$/src/parser/GenericParserTest.java" />
         <option value="$PROJECT_DIR$/src/parser/ExpressionParser.java" />
+        <option value="$PROJECT_DIR$/src/parser/NumberInteger.java" />
+        <option value="$PROJECT_DIR$/src/parser/NumberDouble.java" />
+        <option value="$PROJECT_DIR$/src/parser/NumberBigInteger.java" />
+        <option value="$PROJECT_DIR$/src/parser/Table.java" />
+        <option value="$PROJECT_DIR$/src/parser/Number.java" />
         <option value="$PROJECT_DIR$/src/parser/GenericParser.java" />
       </list>
     </option>
@@ -705,7 +672,11 @@
       <created>1397923933102</created>
       <updated>1397923933102</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixing generics and adding GenericParserTest&#10;&#10;">
+      <created>1398115371086</created>
+      <updated>1398115371086</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -729,9 +700,9 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24392097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24392097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39862543" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3281787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -785,7 +756,8 @@
     <MESSAGE value="Bugfix. Added Not and Abs Operators" />
     <MESSAGE value="Added exceptions, Exp and Log classes" />
     <MESSAGE value="Added generics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added generics" />
+    <MESSAGE value="Fixing generics and adding GenericParserTest&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing generics and adding GenericParserTest&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -795,11 +767,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="342" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/expr3/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="5" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="342" />
@@ -1033,13 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/NumberBigInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/NumberBigIntegerParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="43" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
@@ -1093,27 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/Number.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/NumberInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="2988">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/NumberDouble.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="13" selection-start="733" selection-end="733" vertical-scroll-proportion="0.0" vertical-offset="215" max-vertical-offset="1512">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="9" selection-start="205" selection-end="2242" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1242">
@@ -1130,10 +1069,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/NumberInteger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="4" selection-start="258" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="3060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/NumberDouble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="8" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/NumberBigInteger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="14" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1548">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/Number.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="3" selection-start="166" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/GenericParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="52" selection-start="472" selection-end="472" vertical-scroll-proportion="0.7949527" vertical-offset="0" max-vertical-offset="1260">
-          <folding />
+        <state line="39" column="0" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.6890595" vertical-offset="343" max-vertical-offset="1584">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
