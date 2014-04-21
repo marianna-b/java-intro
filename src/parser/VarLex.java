@@ -3,7 +3,7 @@ package parser;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class VarLex extends Lexem {
+public class VarLex <T extends Number <T> > extends Lexem <T> {
 
     public final String name;
 

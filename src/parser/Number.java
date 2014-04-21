@@ -7,9 +7,6 @@ import parser.exceptions.AbstractException;
  */
 public interface Number <T> {
 
-    T parseNumber(String s);
-    boolean checkNumber(String s);
-
     T sum (T b) throws AbstractException;
     T sub (T b) throws AbstractException;
     T mul (T b) throws AbstractException;

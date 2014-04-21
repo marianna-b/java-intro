@@ -3,16 +3,16 @@ package parser;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class NumLex <T extends Number <T>> extends Lexem {
-    public final Number value;
+public class NumLex <T extends Number <T>> extends Lexem <T>{
+    public final T value;
 
-    public NumLex(Number num) {
+    public NumLex(T num) {
         super(LexemType.CONST);
 
         value = num;
     }
 
-    public Number getValue() {
+    public T getValue() {
         return value;
     }
 

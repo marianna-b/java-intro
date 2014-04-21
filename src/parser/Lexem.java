@@ -10,9 +10,9 @@ import static parser.Lexem.LexemType.*;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Lexem <T> {
+public class Lexem <T extends Number <T>> {
     protected final LexemType type;
-    protected static final ArrayList <LexemType>[] operation = new ArrayList[6];
+    protected static final ArrayList<LexemType>[] operation = new ArrayList[6];
 
     static {
 
@@ -62,17 +62,17 @@ public class Lexem <T> {
         return false;
     }
 
-    public Expression3 getBinaryExpr (Expression3 a, Expression3 b) throws ParseExpressionException {
+    public Expression3<T> getBinaryExpr(Expression3<T> a, Expression3<T> b) throws ParseExpressionException {
         if (type == PLUS)
-            return new Add(a, b);
+            return new Add<>(a, b);
         else if (type == MINUS)
-            return new Subtract(a, b);
+            return new Subtract<>(a, b);
         else if (type == MUL)
-            return new Multiply(a, b);
+            return new Multiply<>(a, b);
         else if (type == DIV)
-            return new Divide(a, b);
+            return new Divide<>(a, b);
         else if (type == EXP)
-            return new Exp (a, b);
+            return new Exp<>(a, b);
 
         throw new ParseExpressionException("not a binary operator");
     }

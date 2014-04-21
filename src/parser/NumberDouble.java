@@ -19,16 +19,6 @@ public class NumberDouble implements Number<NumberDouble> {
     }
 
     @Override
-    public NumberDouble parseNumber(String s) {
-        return new NumberDouble(Double.parseDouble(s));
-    }
-
-    @Override
-    public boolean checkNumber(String s) {
-        return false;
-    }
-
-    @Override
     public NumberDouble sum(NumberDouble b) throws AbstractException {
         return new NumberDouble(val + b.val);
     }

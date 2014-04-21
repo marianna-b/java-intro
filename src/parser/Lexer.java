@@ -15,10 +15,12 @@ public class Lexer <T extends Number <T> > {
     private int currLexem = 0;
     private int newLexem = 0;
     private String expression;
-    private List<Lexem> result;
+    private List<Lexem<T>> result;
 
-    private Lexer (String s, Number a) throws ParseExpressionException {
+
+    public Lexer (String s, NumberParser<T> a) throws ParseExpressionException {
         currLexem = 0;
+
         newLexem = 0;
         expression = s;
         result = new ArrayList<>();
@@ -29,8 +31,8 @@ public class Lexer <T extends Number <T> > {
         }
     }
 
-    public static List<Lexem> getLexems (String s, Number a) throws ParseExpressionException {
-        return new Lexer(s, a).result;
+    public List<Lexem <T>> getLexems() throws ParseExpressionException {
+        return result;
     }
 
     private char currChar() {
@@ -41,43 +43,43 @@ public class Lexer <T extends Number <T> > {
         return expression.charAt(newLexem);
     }
 
-    private Lexem nextLexem(Number a) throws ParseExpressionException {
+    private Lexem<T> nextLexem(NumberParser<T> a) throws ParseExpressionException {
         skipWhitespaces();
         currLexem = newLexem;
         newLexem++;
 
         switch (currChar()) {
             case '+':
-                return new Lexem(PLUS);
+                return new Lexem<>(PLUS);
 
             case '^':
-                return new Lexem(EXP);
+                return new Lexem<>(EXP);
 
             case 'l':
                 newLexem++;
-                return new Lexem(LOG);
+                return new Lexem<>(LOG);
 
             case '~':
-                return new Lexem(NOT);
+                return new Lexem<>(NOT);
 
             case 'a':
                 newLexem += 2;
-                return new Lexem(ABS);
+                return new Lexem<>(ABS);
 
             case '-':
-                return new Lexem(MINUS);
+                return new Lexem<>(MINUS);
 
             case '*':
-                return new Lexem(MUL);
+                return new Lexem<>(MUL);
 
             case '/':
-                return new Lexem(DIV);
+                return new Lexem<>(DIV);
 
             case '(':
-                return new Lexem(OPEN_BRACKET);
+                return new Lexem<>(OPEN_BRACKET);
 
             case ')':
-                return new Lexem(CLOSE_BRACKET);
+                return new Lexem<>(CLOSE_BRACKET);
         }
         newLexem--;
         if (Character.isDigit(currChar())) {
@@ -86,11 +88,8 @@ public class Lexer <T extends Number <T> > {
             }
 
             String valStr = expression.substring(currLexem, newLexem);
-
-            if (a.checkNumber(valStr))
-                    throw new ParseExpressionException("invalid size of number");
-
-            return new NumLex((Number)a.parseNumber(valStr));
+            T curr = a.parseNumber(valStr);
+            return new NumLex<>(curr);
         }
         if (Character.isAlphabetic(currChar())) {
             while (newLexem < expression.length() && Character.isLetter(newChar())) {
@@ -98,7 +97,7 @@ public class Lexer <T extends Number <T> > {
             }
 
             String name = expression.substring(currLexem, newLexem);
-            return new VarLex(name);
+            return new VarLex<>(name);
         }
         throw new ParseExpressionException("invalid symbol");
     }

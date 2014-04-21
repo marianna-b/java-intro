@@ -19,16 +19,6 @@ public class NumberBigInteger implements Number<NumberBigInteger> {
     }
 
     @Override
-    public NumberBigInteger parseNumber(String s) {
-        return new NumberBigInteger(new BigInteger(s));
-    }
-
-    @Override
-    public boolean checkNumber(String s) {
-        return false;
-    }
-
-    @Override
     public NumberBigInteger sum(NumberBigInteger b) throws AbstractException {
         return new NumberBigInteger(val.add(b.val));
     }

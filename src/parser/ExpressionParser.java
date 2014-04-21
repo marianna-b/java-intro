@@ -13,25 +13,24 @@ import static parser.Lexem.LexemType.CLOSE_BRACKET;
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
 public class ExpressionParser <T extends Number <T>> {
-    private List<Lexem> lexems;
+    private List<Lexem <T>> lexems;
     private int idx;
 
-    private ExpressionParser(String expression, Number a) throws ParseExpressionException {
+    public ExpressionParser(String expression, NumberParser<T> a) throws ParseExpressionException {
         idx = 0;
-        lexems = Lexer.getLexems(expression, a);
+        Lexer <T> curr = new Lexer<>(expression, a);
+        lexems = curr.getLexems();
     }
 
-    public static Expression3 parse(String expr, Number a) throws ParseExpressionException {
-
-        ExpressionParser parser = new ExpressionParser(expr, a);
-        Expression3 result = (parser).evalLexem(1);
-        if (parser.idx < parser.lexems.size())
+    public Expression3<T> parse() throws ParseExpressionException {
+        Expression3 <T> result = evalLexem(1);
+        if (idx < lexems.size())
             throw new ParseExpressionException("invalid end of expression");
         return result;
     }
 
 
-    private Expression3 evalLexem(int priority) throws ParseExpressionException {
+    private Expression3 <T> evalLexem(int priority) throws ParseExpressionException {
         if (priority > 4) {
             return lexem();
         }
@@ -39,35 +38,31 @@ public class ExpressionParser <T extends Number <T>> {
         if (priority == 3)
             return evalExp();
 
-        Expression3 result;
+        Expression3<T> result;
         result = evalLexem(priority + 1);
 
         while (idx < lexems.size() && (lexems.get(idx).hasPrior(priority))) {
-            Lexem prevIdx = lexems.get(idx);
+            Lexem<T> prevIdx = lexems.get(idx);
             idx++;
             result = prevIdx.getBinaryExpr(result, evalLexem(priority + 1));
         }
         return result;
     }
 
-    private Expression3 evalExp() throws ParseExpressionException {
-        Expression3 result = lexem();
+    private Expression3 <T> evalExp() throws ParseExpressionException {
+        Expression3 <T> result = lexem();
 
         while (idx < lexems.size() && (lexems.get(idx).hasPrior(3))) {
-            Lexem prevIdx = lexems.get(idx);
+            Lexem<T> prevIdx = lexems.get(idx);
             idx++;
             result = prevIdx.getBinaryExpr(result, evalExp());
         }
         return result;
     }
 
-    private Lexem.LexemType idxType() {
-        return lexems.get(idx).getType();
-    }
+    private Expression3<T> lexem() throws ParseExpressionException {
 
-    private Expression3 lexem() throws ParseExpressionException {
-
-        Expression3 result;
+        Expression3<T> result;
         if (idx >= lexems.size())
             throw new ParseExpressionException("unexpected end of expression");
         Lexem.LexemType lexemType = lexems.get(idx).type;
@@ -75,34 +70,29 @@ public class ExpressionParser <T extends Number <T>> {
         switch (lexemType) {
             case LOG:
                 idx++;
-                result = new Log(lexem());
+                result = new Log<>(lexem());
                 break;
 
             case CONST:
-                result = new Const(((NumLex<T>) lexems.get(idx)).getValue());
+                result = new Const<>(((NumLex<T>) lexems.get(idx)).getValue());
                 idx++;
                 break;
 
             case VAR:
-                result = new Variable(((VarLex) lexems.get(idx)).getName());
+                result = new Variable<>(((VarLex) lexems.get(idx)).getName());
                 idx++;
                 break;
 
             case MINUS:
                 idx++;
-                result = new Negative(lexem());
+                result = new Negative<>(lexem());
                 break;
 
             case ABS:
                 idx++;
-                result = new Abs(lexem());
+                result = new Abs<>(lexem());
                 break;
 
-            /*case NOT:
-                idx++;
-                result = new Not(lexem());
-                break;
-*/
             case OPEN_BRACKET:
                 idx++;
                 result = evalLexem(1);

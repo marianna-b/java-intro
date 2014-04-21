@@ -1,8 +1,6 @@
 package parser.expr3;
 
-import parser.Number;
-
-public class Const <T extends parser.Number <T> > implements Expression3 {
+public class Const <T extends parser.Number <T> > implements Expression3 <T> {
 
     private final T value;
 
@@ -11,7 +9,7 @@ public class Const <T extends parser.Number <T> > implements Expression3 {
     }
 
     @Override
-    public Number evaluate (Number x, Number y, Number z) {
+    public T evaluate (T x, T y, T z) {
         return this.value;
     }
 

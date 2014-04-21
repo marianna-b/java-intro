@@ -5,10 +5,9 @@ import parser.exceptions.AbstractException;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Test {
+public class GenericParser {
     public static void main(String[] args) {
-
-
+        String expression = args[1];
         switch (args[0]) {
             case ("-i"):
                 NumberInteger xi = new NumberInteger(args[2]);
@@ -16,7 +15,8 @@ public class Test {
                 NumberInteger zi = new NumberInteger(args[4]);
 
                 try {
-                    ExpressionParser <NumberInteger> pI = new ExpressionParser<>(args[1], new NumberIntegerParser());
+                    ExpressionParser <NumberInteger> pI;
+                    pI = new ExpressionParser<>(expression, new NumberIntegerParser());
                     NumberInteger resI = pI.parse().evaluate(xi, yi, zi);
 
                     System.out.println(resI.val);
@@ -59,5 +59,6 @@ public class Test {
             default:
                 System.out.println("unexpected type");
         }
+
     }
 }

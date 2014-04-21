@@ -2,9 +2,6 @@ package parser;
 
 import parser.exceptions.*;
 
-import java.lang.*;
-import java.math.BigInteger;
-
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
@@ -18,24 +15,6 @@ import java.math.BigInteger;
 
     public NumberInteger(String s) {
         val = Integer.parseInt(s);
-    }
-
-    @Override
-    public NumberInteger parseNumber(String s) {
-        return new NumberInteger(Integer.parseInt(s));
-    }
-
-    @Override
-    public boolean checkNumber(String s) {
-        BigInteger bigNum = new BigInteger(s);
-
-        if (bigNum.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) == 1)
-            return false;
-
-        if (bigNum.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) == -1)
-            return false;
-
-        return true;
     }
 
     @Override

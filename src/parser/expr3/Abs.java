@@ -1,20 +1,19 @@
 package parser.expr3;
 
-import parser.Number;
 import parser.exceptions.AbstractException;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Abs <T extends parser.Number <T> > extends AbstractUnaryExpression {
+public class Abs <T extends parser.Number <T> > extends AbstractUnaryExpression <T> {
 
-    public Abs(Expression3 first) {
+    public Abs(Expression3 <T> first) {
         super(first);
     }
-   
+
     @Override
-    public Number evaluate(Number x, Number y, Number z) throws AbstractException {
-        return (Number)first.evaluate(x, y, x).abs();
+    public T evaluate(T x, T y, T z) throws AbstractException {
+        return first.evaluate(x, y, x).abs();
     }
 
     public String toString() {

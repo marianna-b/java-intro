@@ -1,20 +1,19 @@
 package parser.expr3;
 
-import parser.Number;
 import parser.exceptions.AbstractException;
 
-public class Multiply <T extends parser.Number<T>> extends AbstractBinaryExpression {
+public class Multiply <T extends parser.Number<T>> extends AbstractBinaryExpression <T>{
 
-    public Multiply(Expression3 first, Expression3 second) {
+    public Multiply(Expression3 <T> first, Expression3 <T> second) {
         super(first, second);
     }
 
     @Override
-    public Number evaluate(Number x, Number y, Number z) throws AbstractException {
-        Number resFirst = first.evaluate(x, y, z);
-        Number resSecond = second.evaluate(x, y, z);
+    public T evaluate(T x, T y, T z) throws AbstractException {
+        T resFirst = first.evaluate(x, y, z);
+        T resSecond = second.evaluate(x, y, z);
 
-        return  (Number) resFirst.mul(resSecond);
+        return resFirst.mul(resSecond);
     }
 
     public String toString() {
