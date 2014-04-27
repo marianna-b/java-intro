@@ -1,9 +1,11 @@
 package parser;
 
+import java.lang.*;
+
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class NumLex <T extends Number <T>> extends Lexem <T>{
+public class NumLex <T extends Number<T>> extends Lexem <T>{
     public final T value;
 
     public NumLex(T num) {

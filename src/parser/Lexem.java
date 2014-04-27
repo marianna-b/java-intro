@@ -1,8 +1,8 @@
 package parser;
 
-import parser.exceptions.ParseExpressionException;
 import parser.expr3.*;
 
+import java.lang.*;
 import java.util.ArrayList;
 
 import static parser.Lexem.LexemType.*;
@@ -10,7 +10,7 @@ import static parser.Lexem.LexemType.*;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Lexem <T extends Number <T>> {
+public class Lexem <T extends Number<T>> {
     protected final LexemType type;
     protected static final ArrayList<LexemType>[] operation = new ArrayList[6];
 
@@ -32,6 +32,7 @@ public class Lexem <T extends Number <T>> {
         operation[4].add(NOT);
         operation[4].add(MINUS);
         operation[4].add(LOG);
+
     }
 
     public Lexem(LexemType type) {
@@ -40,7 +41,8 @@ public class Lexem <T extends Number <T>> {
 
     public static enum LexemType{
         CONST,
-        VAR,
+        STRING,
+        VARIABLE,
         PLUS,
         MINUS,
         MUL,
@@ -62,7 +64,7 @@ public class Lexem <T extends Number <T>> {
         return false;
     }
 
-    public Expression3<T> getBinaryExpr(Expression3<T> a, Expression3<T> b) throws ParseExpressionException {
+    public Expression3<T> getBinaryExpr(Expression3<T> a, Expression3<T> b){
         if (type == PLUS)
             return new Add<>(a, b);
         else if (type == MINUS)
@@ -74,7 +76,7 @@ public class Lexem <T extends Number <T>> {
         else if (type == EXP)
             return new Exp<>(a, b);
 
-        throw new ParseExpressionException("not a binary operator");
+        throw new RuntimeException();
     }
 
     @Override

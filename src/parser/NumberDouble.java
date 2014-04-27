@@ -4,12 +4,14 @@ import parser.exceptions.AbstractException;
 import parser.exceptions.DivisionByZeroException;
 import parser.exceptions.InvalidExpException;
 
+import java.lang.*;
+
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
 public class NumberDouble implements Number<NumberDouble> {
 
-    double val;
+    public double val;
     public NumberDouble(double x) {
         val = x;
     }
@@ -18,8 +20,22 @@ public class NumberDouble implements Number<NumberDouble> {
         val = Double.parseDouble(s);
     }
 
+    public NumberDouble() {
+        val = 0;
+    }
+
     public void inc(){
         val++;
+    }
+
+    @Override
+    public void setMin() {
+        val = -100.0;
+    }
+
+    @Override
+    public boolean isMax() {
+        return (int)val == 101;
     }
 
     @Override
@@ -39,22 +55,19 @@ public class NumberDouble implements Number<NumberDouble> {
 
     @Override
     public NumberDouble div(NumberDouble b) throws AbstractException {
-        if (Double.compare(b.val, 0.0) == 0)
-            throw new DivisionByZeroException("division by zero");
         return new NumberDouble(val / b.val);
     }
 
     @Override
     public NumberDouble exp(NumberDouble b) throws AbstractException {
-        if (Double.compare(val, 0.0) == 1 && b.val <= 0)
+        if (b.val < 1e-7 && b.val > -1e-7 && b.val <= 0)
             throw new DivisionByZeroException("division by zero");
-        if ((long)b.val < 0)
+        if ((long)b.val < 1e-7)
             throw new InvalidExpException("exp negative number");
 
         return new NumberDouble(binPow(val, (long)b.val));
     }
 
-    @Override
     public NumberDouble abs() throws AbstractException {
         return new NumberDouble(Math.abs(val));
     }
@@ -64,7 +77,6 @@ public class NumberDouble implements Number<NumberDouble> {
         return new NumberDouble(-val);
     }
 
-    @Override
     public NumberDouble log() throws AbstractException {
         return new NumberDouble (Math.log(val) / Math.log(2));
     }

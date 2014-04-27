@@ -3,19 +3,21 @@ package parser;
 import parser.exceptions.AbstractException;
 import parser.expr3.Expression3;
 
+import java.math.BigInteger;
+
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
 public class GenericParser {
+    public static final BigInteger MinusHundred = BigInteger.ONE.multiply(BigInteger.TEN.multiply(BigInteger.TEN)).negate();
+
     public static void main(String[] args) {
         String expression = args[1];
         switch (args[0]) {
             case ("-i"):
-
-                try {
                     ExpressionParser <NumberInteger> pI;
                     pI = new ExpressionParser<>(expression, new NumberIntegerParser());
-                    Expression3 <NumberInteger> resI = pI.parse();
+                    Expression3 <NumberInteger> resI = pI.parse(new FunctionList(new NumberInteger()));
 
                     NumberInteger xi = new NumberInteger(-100);
                     NumberInteger yi = new NumberInteger(-100);
@@ -26,7 +28,9 @@ public class GenericParser {
                         while (!yi.isMax()) {
 
                             try {
-                                System.out.print(resI.evaluate(xi, yi, zi) + " ");
+                                NumberInteger b = resI.evaluate(xi, yi, zi);
+                                int a = (b.val);
+                                System.out.print(a + " ");
                             } catch (AbstractException e) {
                                 System.out.print("error ");
                             }
@@ -37,46 +41,63 @@ public class GenericParser {
                         System.out.println();
                     }
 
-
-                    } catch (AbstractException e) {
-                    System.out.println(e.getMessage());
-                }
-
                 break;
 
             case ("-d"):
-                NumberDouble xd = new NumberDouble(args[2]);
-                NumberDouble yd = new NumberDouble(args[3]);
-                NumberDouble zd = new NumberDouble(args[4]);
+                NumberDouble xd = new NumberDouble(-100.0);
+                NumberDouble yd = new NumberDouble(-100.0);
+                NumberDouble zd = new NumberDouble(0.0);
 
-                try {
-                    ExpressionParser <NumberDouble> pD = new ExpressionParser<>(args[1], new NumberDoubleParser());
-                    NumberDouble resD = pD.parse().evaluate(xd, yd, zd);
 
-                    System.out.println(resD.val);
-                } catch (AbstractException e) {
-                    System.out.println(e.getMessage());
+
+                ExpressionParser <NumberDouble> pD = new ExpressionParser<>(args[1], new NumberDoubleParser());
+                Expression3 <NumberDouble> resD = pD.parse(new FunctionList(new NumberDouble()));
+
+
+                while (!xd.isMax()) {
+                    yd.setMin();
+                    while (!yd.isMax()) {
+
+                        try {
+                            System.out.print(resD.evaluate(xd, yd, zd).val + " ");
+                        } catch (AbstractException e) {
+                            System.out.print("error ");
+                        }
+
+                        yd.inc();
+                    }
+                    xd.inc();
+                    System.out.println();
                 }
 
                 break;
             case ("-bi"):
-                NumberBigInteger xbi = new NumberBigInteger(args[2]);
-                NumberBigInteger ybi = new NumberBigInteger(args[3]);
-                NumberBigInteger zbi = new NumberBigInteger(args[4]);
+                NumberBigInteger xbi = new NumberBigInteger(MinusHundred);
+                NumberBigInteger ybi = new NumberBigInteger(MinusHundred);
+                NumberBigInteger zbi = new NumberBigInteger(BigInteger.ZERO);
 
-                try {
-                    ExpressionParser <NumberBigInteger> pBI;
-                    pBI = new ExpressionParser<>(args[1], new NumberBigIntegerParser());
-                    NumberBigInteger resBI = pBI.parse().evaluate(xbi, ybi, zbi);
+                ExpressionParser <NumberBigInteger> pBI;
+                pBI = new ExpressionParser<>(expression, new NumberBigIntegerParser());
+                Expression3 <NumberBigInteger> resBI = pBI.parse(new FunctionList(new NumberBigInteger()));
 
-                    System.out.println(resBI.val);
-                } catch (AbstractException e) {
-                    System.out.println(e.getMessage());
+                while (!xbi.isMax()) {
+                    ybi.setMin();
+                    while (!ybi.isMax()) {
+
+                        try {
+                            System.out.print(resBI.evaluate(xbi, ybi, zbi).val + " ");
+                        } catch (AbstractException e) {
+                            System.out.print("error ");
+                        }
+
+                        ybi.inc();
+                    }
+                    xbi.inc();
+                    System.out.println();
                 }
                 break;
             default:
                 System.out.println("unexpected type");
         }
-
     }
 }

@@ -1,6 +1,6 @@
 package parser.expr3;
 
-public abstract class AbstractBinaryExpression <T extends parser.Number <T>> implements Expression3 <T> {
+public abstract class AbstractBinaryExpression <T extends parser.Number<T>> implements Expression3 <T> {
 
     protected final Expression3 <T> first, second;
 

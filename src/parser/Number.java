@@ -5,7 +5,7 @@ import parser.exceptions.AbstractException;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public interface Number <T> {
+public interface Number <T extends Number<T>> {
 
     void inc();
     void setMin();
@@ -18,9 +18,5 @@ public interface Number <T> {
     T exp (T b) throws AbstractException;
 
 
-    T abs () throws AbstractException;
     T neg () throws AbstractException;
-    T log () throws AbstractException;
-    //T not () throws AbstractException;
-
 }

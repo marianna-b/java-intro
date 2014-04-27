@@ -3,7 +3,7 @@ package parser.expr3;
 import parser.Number;
 import parser.exceptions.AbstractException;
 
-public class Divide <T extends Number <T> > extends AbstractBinaryExpression <T> {
+public class Divide <T extends Number<T>> extends AbstractBinaryExpression <T> {
 
     public Divide(Expression3 <T> first, Expression3 <T> second) {
         super(first, second);

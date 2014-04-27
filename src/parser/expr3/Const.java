@@ -1,6 +1,6 @@
 package parser.expr3;
 
-public class Const <T extends parser.Number <T> > implements Expression3 <T> {
+public class Const <T extends parser.Number<T>> implements Expression3 <T> {
 
     private final T value;
 

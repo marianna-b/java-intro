@@ -1,20 +1,37 @@
 package parser;
 
-import parser.exceptions.*;
+import parser.exceptions.AbstractException;
+import parser.exceptions.DivisionByZeroException;
+import parser.exceptions.InvalidExpException;
+import parser.exceptions.InvalidLogException;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-    public class NumberInteger implements Number<NumberInteger> {
+    public class NumberInteger implements parser.Number<NumberInteger> {
 
-    int val;
+    public int val;
 
     public NumberInteger(int x) {
         val = x;
     }
 
+    public NumberInteger() {
+        val = 0;
+    }
+
     public void inc(){
         val++;
+    }
+
+    @Override
+    public void setMin() {
+        val = -100;
+    }
+
+    @Override
+    public boolean isMax() {
+        return val == 101;
     }
 
     public NumberInteger(String s) {
@@ -22,23 +39,17 @@ import parser.exceptions.*;
     }
 
     @Override
-    public NumberInteger sum(NumberInteger b) throws AbstractException {
-        if (checkIntAdd(val, b.val))
-            throw new OverflowIntegerException("overflow");
+    public NumberInteger sum(NumberInteger b) {
         return new NumberInteger(val + b.val);
     }
 
     @Override
     public NumberInteger sub(NumberInteger b) throws AbstractException {
-        if (checkIntSub(val, b.val))
-            throw new OverflowIntegerException("overflow");
         return new NumberInteger(val - b.val);
     }
 
     @Override
     public NumberInteger mul(NumberInteger b) throws AbstractException {
-        if (checkIntMul(val, b.val))
-            throw new OverflowIntegerException("overflow");
         return new NumberInteger(val * b.val);
     }
 
@@ -47,14 +58,11 @@ import parser.exceptions.*;
         if (b.val == 0)
             throw new DivisionByZeroException("division by zero");
 
-        if (checkIntAdd(val, b.val))
-            throw new OverflowIntegerException("overflow");
-
         return new NumberInteger(val / b.val);
     }
 
 
-    public NumberInteger exp(NumberInteger b) throws AbstractException{
+    public NumberInteger exp(NumberInteger b) throws AbstractException {
         if (val == 0 && b.val <= 0)
             throw new DivisionByZeroException("division by zero");
         if (b.val < 0)
@@ -64,17 +72,12 @@ import parser.exceptions.*;
     }
 
 
-    public NumberInteger abs() throws AbstractException{
-        if (checkIntAbs(val))
-            throw new OverflowIntegerException("overflow");
-
+    public NumberInteger abs() throws AbstractException {
         return new NumberInteger(Math.abs(val));
     }
 
     @Override
     public NumberInteger neg() throws AbstractException {
-        if (checkIntNegate(val))
-            throw new OverflowIntegerException("overflow");
         return new NumberInteger(-val);
     }
 
@@ -82,8 +85,6 @@ import parser.exceptions.*;
     public NumberInteger log() throws AbstractException {
         if (val < 0)
             throw new InvalidLogException("log is under zero");
-        if (checkIntLog(val))
-            throw new OverflowIntegerException("overflow");
 
         return  new NumberInteger((int)(Math.log((double)val) / Math.log(2)));
     }
@@ -99,15 +100,9 @@ import parser.exceptions.*;
         if (n % 2 == 1) {
             Integer c = binPow(a, n - 1);
 
-            if (checkIntMul(c, a))
-                throw new OverflowIntegerException("overflow");
-
             return c * a;
         } else {
             Integer b = binPow(a, n / 2);
-
-            if (checkIntMul(b, b))
-                throw new OverflowIntegerException("overflow");
 
             return b * b;
         }

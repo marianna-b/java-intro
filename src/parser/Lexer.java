@@ -1,16 +1,13 @@
 package parser;
 
-import parser.exceptions.ParseExpressionException;
-
+import java.lang.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static parser.Lexem.LexemType.*;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Lexer <T extends Number <T> > {
+public class Lexer <T extends Number<T>> {
 
     private int currLexem = 0;
     private int newLexem = 0;
@@ -18,7 +15,7 @@ public class Lexer <T extends Number <T> > {
     private List<Lexem<T>> result;
 
 
-    public Lexer (String s, NumberParser<T> a) throws ParseExpressionException {
+    public Lexer (String s, NumberParser<T> a) {
         currLexem = 0;
 
         newLexem = 0;
@@ -27,11 +24,12 @@ public class Lexer <T extends Number <T> > {
 
         while (newLexem < expression.length()) {
             skipWhitespaces();
-            result.add(nextLexem(a));
+            if (newLexem < expression.length())
+                result.add(nextLexem(a));
         }
     }
 
-    public List<Lexem <T>> getLexems() throws ParseExpressionException {
+    public List<Lexem <T>> getLexems(){
         return result;
     }
 
@@ -43,69 +41,79 @@ public class Lexer <T extends Number <T> > {
         return expression.charAt(newLexem);
     }
 
-    private Lexem<T> nextLexem(NumberParser<T> a) throws ParseExpressionException {
+    private Lexem<T> nextLexem(NumberParser<T> a) {
         skipWhitespaces();
         currLexem = newLexem;
         newLexem++;
 
         switch (currChar()) {
             case '+':
-                return new Lexem<>(PLUS);
+                return new Lexem<>(Lexem.LexemType.PLUS);
 
             case '^':
-                return new Lexem<>(EXP);
-
-            case 'l':
-                newLexem++;
-                return new Lexem<>(LOG);
+                return new Lexem<>(Lexem.LexemType.EXP);
 
             case '~':
-                return new Lexem<>(NOT);
-
-            case 'a':
-                newLexem += 2;
-                return new Lexem<>(ABS);
+                return new Lexem<>(Lexem.LexemType.NOT);
 
             case '-':
-                return new Lexem<>(MINUS);
+                return new Lexem<>(Lexem.LexemType.MINUS);
 
             case '*':
-                return new Lexem<>(MUL);
+                return new Lexem<>(Lexem.LexemType.MUL);
 
             case '/':
-                return new Lexem<>(DIV);
+                return new Lexem<>(Lexem.LexemType.DIV);
 
             case '(':
-                return new Lexem<>(OPEN_BRACKET);
+                return new Lexem<>(Lexem.LexemType.OPEN_BRACKET);
 
             case ')':
-                return new Lexem<>(CLOSE_BRACKET);
+                return new Lexem<>(Lexem.LexemType.CLOSE_BRACKET);
         }
         newLexem--;
         if (Character.isDigit(currChar())) {
-            while (newLexem < expression.length() && Character.isDigit(newChar())) {
-                newLexem++;
-            }
+            getInt();
+            if (newLexem < expression.length())
+                if (newChar() == '.') {
+                    newLexem++;
+                    getInt();
+                }
+            if (newLexem < expression.length())
+                if (newChar() == 'e' || newChar() == 'E') {
+                    newLexem++;
+                    getInt();
+                }
 
-            String valStr = expression.substring(currLexem, newLexem);
-            T curr = a.parseNumber(valStr);
+            T curr = a.parseNumber(expression.substring(currLexem, newLexem));
             return new NumLex<>(curr);
         }
-        if (Character.isAlphabetic(currChar())) {
-            while (newLexem < expression.length() && Character.isLetter(newChar())) {
-                newLexem++;
-            }
 
-            String name = expression.substring(currLexem, newLexem);
-            return new VarLex<>(name);
+        while (newLexem < expression.length() && Character.isLetter(newChar())) {
+            newLexem++;
         }
-        throw new ParseExpressionException("invalid symbol");
+
+        String name = expression.substring(currLexem, newLexem);
+        skipWhitespaces();
+
+        if (newLexem < this.expression.length() && newChar() == '(')
+            return new StringLex<>(name);
+
+        return new VarLex<>(name);
+
+    }
+
+    private void getInt() {
+        if (newChar() == '-')
+            newLexem++;
+        while (newLexem < expression.length() && Character.isDigit(newChar())) {
+            newLexem++;
+        }
     }
 
     private void skipWhitespaces() {
         while (newLexem < expression.length() && Character.isWhitespace(expression.charAt(newLexem)))
             newLexem++;
-
     }
 
 }

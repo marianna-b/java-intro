@@ -6,7 +6,7 @@ import parser.exceptions.AbstractException;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class Exp <T extends Number <T> > extends AbstractBinaryExpression  <T>{
+public class Exp <T extends Number<T>> extends AbstractBinaryExpression  <T>{
 
     public Exp(Expression3 <T> first, Expression3 <T> second) {
         super(first, second);

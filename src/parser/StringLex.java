@@ -5,12 +5,12 @@ import java.lang.*;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class VarLex<T extends Number<T>> extends Lexem <T> {
+public class StringLex<T extends Number<T>> extends Lexem <T> {
 
     public final String name;
 
-    public VarLex(String s) {
-        super(LexemType.VARIABLE);
+    public StringLex(String s) {
+        super(LexemType.STRING);
 
         name = s;
     }
@@ -26,6 +26,6 @@ public class VarLex<T extends Number<T>> extends Lexem <T> {
 
     @Override
     public String toString() {
-        return "Variable: " + name;
+        return "Function: " + name;
     }
 }

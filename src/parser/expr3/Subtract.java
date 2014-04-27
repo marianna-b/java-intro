@@ -2,7 +2,7 @@ package parser.expr3;
 
 import parser.exceptions.AbstractException;
 
-public class Subtract <T extends parser.Number<T> > extends AbstractBinaryExpression <T> {
+public class Subtract <T extends parser.Number<T>> extends AbstractBinaryExpression <T> {
 
     public Subtract(Expression3 <T> first, Expression3 <T> second) {
         super(first, second);

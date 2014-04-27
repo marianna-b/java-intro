@@ -1,17 +1,23 @@
 package parser;
 
 import parser.exceptions.AbstractException;
+import parser.exceptions.DivisionByZeroException;
 
+import java.lang.*;
 import java.math.BigInteger;
 
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class NumberBigInteger implements Number<NumberBigInteger> {
+public class NumberBigInteger implements parser.Number<NumberBigInteger> {
 
-    BigInteger val;
+    public BigInteger val;
     public NumberBigInteger(BigInteger a) {
         val = new BigInteger(a.toString());
+    }
+
+    public NumberBigInteger() {
+        val = BigInteger.ZERO;
     }
 
     public NumberBigInteger(String s) {
@@ -20,6 +26,16 @@ public class NumberBigInteger implements Number<NumberBigInteger> {
 
     public void inc(){
         val = val.add(BigInteger.ONE);
+    }
+
+    @Override
+    public void setMin() {
+        val = BigInteger.TEN.multiply(BigInteger.TEN).negate();
+    }
+
+    @Override
+    public boolean isMax() {
+        return val.compareTo(BigInteger.TEN.multiply(BigInteger.TEN).add(BigInteger.ONE)) == 0;
     }
 
     @Override
@@ -39,6 +55,8 @@ public class NumberBigInteger implements Number<NumberBigInteger> {
 
     @Override
     public NumberBigInteger div(NumberBigInteger b) throws AbstractException {
+        if (b.val.equals(BigInteger.ZERO))
+            throw new DivisionByZeroException("division by zero");
         return new NumberBigInteger(val.divide(b.val));
     }
 
@@ -48,7 +66,6 @@ public class NumberBigInteger implements Number<NumberBigInteger> {
 
     }
 
-    @Override
     public NumberBigInteger abs() throws AbstractException {
         return new NumberBigInteger(val.abs());
     }
@@ -58,7 +75,6 @@ public class NumberBigInteger implements Number<NumberBigInteger> {
         return new NumberBigInteger(val.negate());
     }
 
-    @Override
     public NumberBigInteger log() throws AbstractException {
         BigInteger curr = BigInteger.valueOf(1);
         BigInteger res = BigInteger.valueOf(0);
