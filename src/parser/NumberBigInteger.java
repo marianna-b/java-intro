@@ -66,28 +66,9 @@ public class NumberBigInteger implements parser.Number<NumberBigInteger> {
 
     }
 
-    public NumberBigInteger abs() throws AbstractException {
-        return new NumberBigInteger(val.abs());
-    }
-
     @Override
     public NumberBigInteger neg() throws AbstractException {
         return new NumberBigInteger(val.negate());
-    }
-
-    public NumberBigInteger log() throws AbstractException {
-        BigInteger curr = BigInteger.valueOf(1);
-        BigInteger res = BigInteger.valueOf(0);
-
-        while(true) {
-            curr = curr.multiply(BigInteger.valueOf(2));
-            if ((curr).compareTo(val) < 1)
-                res = res.add(BigInteger.valueOf(1));
-            else
-                break;
-        }
-
-        return new NumberBigInteger(res);
     }
 
 

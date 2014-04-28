@@ -68,17 +68,9 @@ public class NumberDouble implements Number<NumberDouble> {
         return new NumberDouble(binPow(val, (long)b.val));
     }
 
-    public NumberDouble abs() throws AbstractException {
-        return new NumberDouble(Math.abs(val));
-    }
-
     @Override
     public NumberDouble neg() throws AbstractException {
         return new NumberDouble(-val);
-    }
-
-    public NumberDouble log() throws AbstractException {
-        return new NumberDouble (Math.log(val) / Math.log(2));
     }
 
     private double binPow(double a, long n) throws AbstractException {

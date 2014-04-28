@@ -19,7 +19,6 @@ public class FunctionExpr<T extends parser.Number<T>> extends AbstractUnaryExpre
 
     @Override
     public T evaluate(T x, T y, T z) throws AbstractException {
-         T res = first.evaluate(x, y, z);
-        return functions.invoke(name, res);
+        return functions.invoke(name, first.evaluate(x, y, z));
     }
 }
