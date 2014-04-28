@@ -2,35 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87a2cfe-7d55-4cbd-862e-7fe2c0da1298" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/FunctionList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/expr3/StringExpression.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/StringLex.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parser/expr3/Abs.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parser/expr3/Log.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/AbstractBinaryExpression.java" afterPath="$PROJECT_DIR$/src/parser/expr3/AbstractBinaryExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/AbstractUnaryExpression.java" afterPath="$PROJECT_DIR$/src/parser/expr3/AbstractUnaryExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Add.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Add.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Const.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Divide.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Divide.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Exp.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Exp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Expression3.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Expression3.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/BigIntFunctionList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/DoubleFunctionList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/IntFunctionList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/parser/Settings.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parser/Test.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/parser/expr3/StringExpression.java" afterPath="$PROJECT_DIR$/src/parser/expr3/FunctionExpr.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/ExpressionParser.java" afterPath="$PROJECT_DIR$/src/parser/ExpressionParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/FunctionList.java" afterPath="$PROJECT_DIR$/src/parser/FunctionList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/GenericParser.java" afterPath="$PROJECT_DIR$/src/parser/GenericParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/GenericParserTest.java" afterPath="$PROJECT_DIR$/src/parser/GenericParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/Lexem.java" afterPath="$PROJECT_DIR$/src/parser/Lexem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/Lexer.java" afterPath="$PROJECT_DIR$/src/parser/Lexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Multiply.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Multiply.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Negative.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Negative.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumLex.java" afterPath="$PROJECT_DIR$/src/parser/NumLex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/Number.java" afterPath="$PROJECT_DIR$/src/parser/Number.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumberBigInteger.java" afterPath="$PROJECT_DIR$/src/parser/NumberBigInteger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumberDouble.java" afterPath="$PROJECT_DIR$/src/parser/NumberDouble.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumberInteger.java" afterPath="$PROJECT_DIR$/src/parser/NumberInteger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/NumberParser.java" afterPath="$PROJECT_DIR$/src/parser/NumberParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Subtract.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Subtract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/VarLex.java" afterPath="$PROJECT_DIR$/src/parser/VarLex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/expr3/Variable.java" afterPath="$PROJECT_DIR$/src/parser/expr3/Variable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="java-intro.iws" />
@@ -122,7 +103,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/parser/ExpressionParser.java" line="58" class="parser.ExpressionParser" package="parser">
+      <breakpoint url="file://$PROJECT_DIR$/src/parser/ExpressionParser.java" line="60" class="parser.ExpressionParser" package="parser">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -167,22 +148,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/parser/ExpressionParser.java" line="22" class="parser.ExpressionParser" package="parser">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/parser/ExpressionParser.java" line="83" class="parser.ExpressionParser" package="parser">
+      <breakpoint url="file://$PROJECT_DIR$/src/parser/ExpressionParser.java" line="24" class="parser.ExpressionParser" package="parser">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -210,19 +176,8 @@
       <file leaf-file-name="GenericParser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser/GenericParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1908">
+            <state line="77" column="0" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.0" vertical-offset="888" max-vertical-offset="1908">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberInteger.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/NumberInteger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="2970">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -230,16 +185,34 @@
       <file leaf-file-name="ExpressionParser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser/ExpressionParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="5" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1836">
+            <state line="16" column="16" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1872">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringExpression.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/parser/expr3/StringExpression.java">
+      <file leaf-file-name="Lexer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/parser/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="37" selection-start="631" selection-end="631" vertical-scroll-proportion="0.63829786" vertical-offset="192" max-vertical-offset="594">
+            <state line="20" column="18" selection-start="456" selection-end="456" vertical-scroll-proportion="0.86170214" vertical-offset="0" max-vertical-offset="2196">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenericParserTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/GenericParserTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="0" selection-start="2853" selection-end="2853" vertical-scroll-proportion="0.0" vertical-offset="1295" max-vertical-offset="7398">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FunctionList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/FunctionList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -247,59 +220,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Negative.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/expr3/Negative.java">
+      <file leaf-file-name="Subtract.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/expr3/Subtract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="540">
+            <state line="4" column="13" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Const.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/expr3/Const.java">
+      <file leaf-file-name="Variable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/expr3/Variable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="396">
+            <state line="5" column="13" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="864">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NumLex.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/NumLex.java">
+      <file leaf-file-name="BigIntFunctionList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/BigIntFunctionList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="648">
+            <state line="10" column="8" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
               <folding>
-                <element signature="e#335#336#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringLex.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/StringLex.java">
+      <file leaf-file-name="DoubleFunctionList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/DoubleFunctionList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="666">
-              <folding>
-                <element signature="e#350#351#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractUnaryExpression.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/expr3/AbstractUnaryExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+            <state line="9" column="8" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lexem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parser/Lexem.java">
+      <file leaf-file-name="IntFunctionList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/IntFunctionList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="1409" selection-end="1409" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1602">
+            <state line="9" column="8" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
               <folding />
             </state>
           </provider>
@@ -318,13 +280,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/parser/ExecuteEvaluation.java" />
-        <option value="$PROJECT_DIR$/src/parser/Add.java" />
-        <option value="$PROJECT_DIR$/src/parser/numbers/Number.java" />
-        <option value="$PROJECT_DIR$/src/parser/exceptions/AbstractException.java" />
-        <option value="$PROJECT_DIR$/src/parser/MyNumber.java" />
-        <option value="$PROJECT_DIR$/src/parser/MyNumberInt.java" />
-        <option value="$PROJECT_DIR$/src/parser/expr3/Not.java" />
         <option value="$PROJECT_DIR$/src/parser/AbstractNumber.java" />
         <option value="$PROJECT_DIR$/src/parser/expr3/Test1.java" />
         <option value="$PROJECT_DIR$/src/parser/expr3/AbstractTripleExpression.java" />
@@ -362,13 +317,20 @@
         <option value="$PROJECT_DIR$/src/parser/NumberBigInteger.java" />
         <option value="$PROJECT_DIR$/src/parser/NumberDouble.java" />
         <option value="$PROJECT_DIR$/src/parser/NumberInteger.java" />
-        <option value="$PROJECT_DIR$/src/parser/GenericParser.java" />
         <option value="$PROJECT_DIR$/src/parser/Number.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
-        <option value="$PROJECT_DIR$/src/parser/FunctionList.java" />
+        <option value="$PROJECT_DIR$/src/parser/Настройки.java" />
+        <option value="$PROJECT_DIR$/src/parser/Settings.java" />
+        <option value="$PROJECT_DIR$/src/parser/BigIntegerFunctionList.java" />
         <option value="$PROJECT_DIR$/src/parser/expr3/StringExpression.java" />
-        <option value="$PROJECT_DIR$/src/parser/Lexer.java" />
+        <option value="$PROJECT_DIR$/src/parser/expr3/FunctionExpr.java" />
+        <option value="$PROJECT_DIR$/src/parser/FunctionList.java" />
+        <option value="$PROJECT_DIR$/src/parser/BigIntFunctionList.java" />
+        <option value="$PROJECT_DIR$/src/parser/DoubleFunctionList.java" />
+        <option value="$PROJECT_DIR$/src/parser/IntFunctionList.java" />
+        <option value="$PROJECT_DIR$/src/parser/GenericParser.java" />
         <option value="$PROJECT_DIR$/src/parser/ExpressionParser.java" />
+        <option value="$PROJECT_DIR$/src/parser/Lexer.java" />
       </list>
     </option>
   </component>
@@ -404,6 +366,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -478,8 +442,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -647,6 +609,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -672,19 +647,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -856,7 +818,11 @@
       <created>1398116674304</created>
       <updated>1398116674304</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add ability to add functions modifiing only file FunctionList">
+      <created>1398631753790</created>
+      <updated>1398631753790</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -879,13 +845,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25454545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32753164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25454545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32753164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39862543" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -904,13 +870,13 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25454545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39862543" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32753164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39862543" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -938,7 +904,8 @@
     <MESSAGE value="Added generics" />
     <MESSAGE value="Fixing generics and adding GenericParserTest&#10;&#10;" />
     <MESSAGE value="Before erasing exceptions from parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Before erasing exceptions from parser" />
+    <MESSAGE value="Add ability to add functions modifiing only file FunctionList" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ability to add functions modifiing only file FunctionList" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -948,21 +915,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="8" selection-start="33" selection-end="33" vertical-scroll-proportion="-2.16" vertical-offset="0" max-vertical-offset="162" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BinarySearch/BinarySearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1638" />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar!/java/lang/Double.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="19" selection-start="826" selection-end="826" vertical-scroll-proportion="0.31976745" vertical-offset="178" max-vertical-offset="1332" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Sum/Sum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="29" selection-start="598" selection-end="598" vertical-scroll-proportion="0.59016395" vertical-offset="0" max-vertical-offset="549" />
@@ -1014,16 +966,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/exceptions/OverflowIntegerException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="63" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="5" column="63" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/exceptions/UnknownVariableException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="53" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
-          <folding />
-        </state>
+        <state line="6" column="53" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/exceptions/ParseExpressionException.java">
@@ -1063,13 +1011,6 @@
         <state line="48" column="0" selection-start="2563" selection-end="2563" vertical-scroll-proportion="0.0" vertical-offset="637" max-vertical-offset="954" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Exp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/NumberParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="17" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
@@ -1079,28 +1020,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/NumberDoubleParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="5" column="13" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/NumberBigIntegerParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="13" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Expression3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="54" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/GenericParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="2853" selection-end="2853" vertical-scroll-proportion="0.0" vertical-offset="1295" max-vertical-offset="7398">
           <folding />
         </state>
       </provider>
@@ -1114,9 +1039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/NumberDouble.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="24" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1764">
-          <folding />
-        </state>
+        <state line="22" column="24" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1764" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/Number.java">
@@ -1126,42 +1049,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Subtract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Multiply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="522">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Divide.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="522">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/NumberIntegerParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/FunctionList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="828">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#288#507#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1174,34 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="864">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/AbstractBinaryExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Add.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="558">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="2427" selection-end="2427" vertical-scroll-proportion="0.0" vertical-offset="1524" max-vertical-offset="2178">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/NumLex.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="648">
@@ -1211,32 +1074,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Negative.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/StringLex.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="666">
-          <folding>
-            <element signature="e#350#351#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/AbstractUnaryExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
           <folding />
         </state>
       </provider>
@@ -1251,32 +1091,166 @@
     <entry file="file://$PROJECT_DIR$/src/parser/NumberInteger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="3" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="43" max-vertical-offset="792">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#536#704#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#743#908#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#952#1125#0" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/AbstractBinaryExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/AbstractUnaryExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="22" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Add.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="13" selection-start="36" selection-end="36" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Divide.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Exp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Expression3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="17" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/FunctionExpr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="5" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Multiply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Negative.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Subtract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/expr3/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/FunctionList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/BigIntFunctionList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/DoubleFunctionList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="8" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/IntFunctionList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="8" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/GenericParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="0" selection-start="2853" selection-end="2853" vertical-scroll-proportion="0.0" vertical-offset="1295" max-vertical-offset="7398">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/GenericParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1908">
+        <state line="77" column="0" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.0" vertical-offset="888" max-vertical-offset="1908">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/ExpressionParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="5" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1836">
+        <state line="16" column="16" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1872">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/expr3/StringExpression.java">
+    <entry file="file://$PROJECT_DIR$/src/parser/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="37" selection-start="631" selection-end="631" vertical-scroll-proportion="0.63829786" vertical-offset="192" max-vertical-offset="594">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="20" column="18" selection-start="456" selection-end="456" vertical-scroll-proportion="0.86170214" vertical-offset="0" max-vertical-offset="2196">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -6,22 +6,20 @@ import parser.exceptions.AbstractException;
 /**
  * @author Marianna Bisyarina (bisyarinamariashka@gmail.com)
  */
-public class StringExpression<T extends parser.Number<T>> extends AbstractUnaryExpression <T> {
+public class FunctionExpr<T extends parser.Number<T>> extends AbstractUnaryExpression <T> {
 
     String name;
-    FunctionList functions;
+    FunctionList <T> functions;
 
-    public StringExpression(String name, Expression3<T> first, FunctionList f) {
+    public FunctionExpr(String a, Expression3<T> first, FunctionList<T> f) {
         super(first);
-        this.name = name;
+        this.name = a;
         this.functions = f;
     }
-
-
 
     @Override
     public T evaluate(T x, T y, T z) throws AbstractException {
          T res = first.evaluate(x, y, z);
-        return (T) functions.map.get(name).run(res);
+        return functions.invoke(name, res);
     }
 }

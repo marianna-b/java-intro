@@ -13,11 +13,12 @@ public class Lexer <T extends Number<T>> {
     private int newLexem = 0;
     private String expression;
     private List<Lexem<T>> result;
+    private NumberParser<T> parse;
 
 
     public Lexer (String s, NumberParser<T> a) {
         currLexem = 0;
-
+        parse = a;
         newLexem = 0;
         expression = s;
         result = new ArrayList<>();
@@ -25,7 +26,7 @@ public class Lexer <T extends Number<T>> {
         while (newLexem < expression.length()) {
             skipWhitespaces();
             if (newLexem < expression.length())
-                result.add(nextLexem(a));
+                result.add(nextLexem());
         }
     }
 
@@ -41,7 +42,7 @@ public class Lexer <T extends Number<T>> {
         return expression.charAt(newLexem);
     }
 
-    private Lexem<T> nextLexem(NumberParser<T> a) {
+    private Lexem<T> nextLexem() {
         skipWhitespaces();
         currLexem = newLexem;
         newLexem++;
@@ -85,7 +86,7 @@ public class Lexer <T extends Number<T>> {
                     getInt();
                 }
 
-            T curr = a.parseNumber(expression.substring(currLexem, newLexem));
+            T curr = parse.parseNumber(expression.substring(currLexem, newLexem));
             return new NumLex<>(curr);
         }
 

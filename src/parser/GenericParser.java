@@ -16,8 +16,8 @@ public class GenericParser {
         switch (args[0]) {
             case ("-i"):
                     ExpressionParser <NumberInteger> pI;
-                    pI = new ExpressionParser<>(expression, new NumberIntegerParser());
-                    Expression3 <NumberInteger> resI = pI.parse(new FunctionList(new NumberInteger()));
+                    pI = new ExpressionParser<>(expression, new NumberIntegerParser(), new IntFunctionList());
+                    Expression3 <NumberInteger> resI = pI.parse();
 
                     NumberInteger xi = new NumberInteger(-100);
                     NumberInteger yi = new NumberInteger(-100);
@@ -50,8 +50,8 @@ public class GenericParser {
 
 
 
-                ExpressionParser <NumberDouble> pD = new ExpressionParser<>(args[1], new NumberDoubleParser());
-                Expression3 <NumberDouble> resD = pD.parse(new FunctionList(new NumberDouble()));
+                ExpressionParser <NumberDouble> pD = new ExpressionParser<>(args[1], new NumberDoubleParser(), new DoubleFunctionList());
+                Expression3 <NumberDouble> resD = pD.parse();
 
 
                 while (!xd.isMax()) {
@@ -77,8 +77,8 @@ public class GenericParser {
                 NumberBigInteger zbi = new NumberBigInteger(BigInteger.ZERO);
 
                 ExpressionParser <NumberBigInteger> pBI;
-                pBI = new ExpressionParser<>(expression, new NumberBigIntegerParser());
-                Expression3 <NumberBigInteger> resBI = pBI.parse(new FunctionList(new NumberBigInteger()));
+                pBI = new ExpressionParser<>(expression, new NumberBigIntegerParser(), new BigIntFunctionList());
+                Expression3 <NumberBigInteger> resBI = pBI.parse();
 
                 while (!xbi.isMax()) {
                     ybi.setMin();

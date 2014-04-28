@@ -11,50 +11,52 @@ import java.util.List;
 public class ExpressionParser <T extends Number<T>> {
     private List<Lexem <T>> lexems;
     private int idx;
+    private FunctionList<T> functions;
 
-    public ExpressionParser(String expression, NumberParser<T> a) {
+    public ExpressionParser(String expression, NumberParser<T> a, FunctionList <T> f) {
         idx = 0;
         Lexer <T> curr = new Lexer<>(expression, a);
         lexems = curr.getLexems();
+        functions = f;
     }
 
 
-    public Expression3<T> parse(FunctionList f) {
-        return evalLexem(1, f);
+    public Expression3<T> parse() {
+        return evalLexem(1);
     }
 
 
-    private Expression3 <T> evalLexem(int priority, FunctionList f){
+    private Expression3 <T> evalLexem(int priority){
         if (priority > 4) {
-            return lexem(f);
+            return lexem();
         }
 
         if (priority == 3)
-            return evalExp(f);
+            return evalExp();
 
         Expression3<T> result;
-        result = evalLexem(priority + 1, f);
+        result = evalLexem(priority + 1);
 
         while (idx < lexems.size() && (lexems.get(idx).hasPrior(priority))) {
             Lexem<T> prevIdx = lexems.get(idx);
             idx++;
-            result = prevIdx.getBinaryExpr(result, evalLexem(priority + 1, f));
+            result = prevIdx.getBinaryExpr(result, evalLexem(priority + 1));
         }
         return result;
     }
 
-    private Expression3 <T> evalExp(FunctionList f) {
-        Expression3 <T> result = lexem(f);
+    private Expression3 <T> evalExp() {
+        Expression3 <T> result = lexem();
 
         while (idx < lexems.size() && (lexems.get(idx).hasPrior(3))) {
             Lexem<T> prevIdx = lexems.get(idx);
             idx++;
-            result = prevIdx.getBinaryExpr(result, evalExp(f));
+            result = prevIdx.getBinaryExpr(result, evalExp());
         }
         return result;
     }
 
-    private Expression3<T> lexem(FunctionList f) {
+    private Expression3<T> lexem() {
 
         Expression3<T> result;
         Lexem.LexemType lexemType = lexems.get(idx).type;
@@ -69,7 +71,7 @@ public class ExpressionParser <T extends Number<T>> {
             case STRING:
                 s = ((StringLex) lexems.get(idx)).getName();
                 idx++;
-                result = new StringExpression<>(s, lexem(f), f);
+                result = new FunctionExpr<>(s, lexem(), functions);
                 break;
 
             case VARIABLE:
@@ -80,12 +82,12 @@ public class ExpressionParser <T extends Number<T>> {
 
             case MINUS:
                 idx++;
-                result = new Negative<>(lexem(f));
+                result = new Negative<>(lexem());
                 break;
 
             case OPEN_BRACKET:
                 idx++;
-                result = evalLexem(1, f);
+                result = evalLexem(1);
                 idx++;
 
                 break;
